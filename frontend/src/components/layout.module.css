@@ -1,0 +1,16 @@
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.nav {
+	margin-bottom: 20px;
+}
+
+.nav a {
+	margin: 0 10px;
+	text-decoration: none;
+	color: blue;
+}
