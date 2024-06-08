@@ -1,4 +1,7 @@
+// entrypoint to the backend
+
 const express = require('express');
+// parse from JSON to js object before handlers
 const bodyParser = require('body-parser');
 const db = require('./config/db');
 const quizRoutes = require('./routes/quiz');
