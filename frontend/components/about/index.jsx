@@ -10,7 +10,7 @@ const AboutMain = () => {
           <div className="tokyo_tm_title">
             <div className="title_flex">
               <div className="left">
-                <span>About</span>
+                <span>A propos</span>
                 <h3>Qui suis-je ?</h3>
               </div>
             </div>
