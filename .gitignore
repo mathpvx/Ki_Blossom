@@ -1,0 +1,5 @@
+node_modules
+.next
+backend/config/db.js
+check_db.sql
+setup_db.sql
