@@ -3,3 +3,4 @@ node_modules
 backend/config/db.js
 check_db.sql
 setup_db.sql
+scripts
