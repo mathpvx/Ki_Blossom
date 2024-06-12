@@ -1,10 +1,9 @@
+'use client'; 
+
 import Contact from "@/components/contact/Contact";
 import Sidebar from "@/components/sidebar/Sidebar";
-export const metadata = {
-  title: "Ki Blossom",
-};
 
-const index = () => {
+const Index = () => {
   return (
     <>
       {/* End page title for seo */}
@@ -27,4 +26,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
