@@ -1,15 +1,22 @@
-// entrypoint to the backend
-
 const express = require('express');
-// parse from JSON to js object before handlers
 const bodyParser = require('body-parser');
-const db = require('./config/db');
+const sequelize = require('./config/db');
 const quizRoutes = require('./routes/quiz');
+const Question = require('./models/questions');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use('/api/quiz', quizRoutes);
+
+// Sync Sequelize models with the database
+// synchronize ORM with DB tables: create them
+// if dont exist. 
+sequelize.sync().then(() => {
+  console.log('Database and tables synced');
+}).catch(err => {
+  console.error('Error syncing database:', err);
+});
 
 const PORT = process.env.PORT || 5000;
 
