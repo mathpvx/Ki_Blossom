@@ -1,7 +1,20 @@
+'use client'; // Add this directive
+
+import { useState, useEffect } from 'react';
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Contact = () => {
+  const [question, setQuestion] = useState(null);
+
+  const fetchQuestion = async () => {
+    try {
+      const response = await fetch('/api/quiz/questions');
+      const data = await response.json();
+      setQuestion(data);
+    } catch (error) {
+      console.error('Error fetching question:', error);
+    }
+  };
 
   return (
     <>
@@ -15,9 +28,14 @@ const Contact = () => {
               </div>
             </div>
           </div>
+          <button onClick={fetchQuestion}>Fetch Question</button>
+          {question && (
+            <div className="question">
+              <p>{question.qu_txt}</p>
+            </div>
+          )}
         </div>
       </div>
-
     </>
   );
 };
