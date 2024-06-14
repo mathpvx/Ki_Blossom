@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Questions = require('../models/questions'); // 
-const sequelize = require('../config/db'); // 
+const Questions = require('../models/questions'); 
+const sequelize = require('../config/db'); 
 
 router.get('/questions', async (req, res) => {
   try {
