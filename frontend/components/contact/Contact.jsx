@@ -34,6 +34,25 @@ const Contact = () => {
     }
   };
 
+  const handleAnswer = async (answerId) => {
+    try {
+      await fetch('/api/session-answers/answer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sess_id: sessionId,
+          answer_id: answerId,
+        }),
+      });
+      // Fetch the next question or handle the end of the quiz
+      fetchQuestion();
+    } catch (error) {
+      console.error('Error submitting answer:', error);
+    }
+  };
+
   return (
     <>
       <div className="container">
@@ -47,14 +66,11 @@ const Contact = () => {
             </div>
           </div>
           <button onClick={startQuiz}>Start Quiz</button>
-          {sessionId && (
-            <div className="session-info">
-              <p>Session ID: {sessionId}</p>
-            </div>
-          )}
-          {question && (
+          {sessionId && question && (
             <div className="question">
               <p>{question.qu_txt}</p>
+              <button onClick={() => handleAnswer(1)}>Yes</button>
+              <button onClick={() => handleAnswer(2)}>No</button>
             </div>
           )}
         </div>
