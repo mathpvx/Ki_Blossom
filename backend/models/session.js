@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const Question = require('./questions');
 
 const Session = sequelize.define('Session', {
   session_id: {
@@ -17,18 +16,10 @@ const Session = sequelize.define('Session', {
   },
   next_qu: {
     type: DataTypes.INTEGER,
-    allowNull: true,
-    references: {
-      model: Question,
-      key: 'qu_id',
-    },
   },
 }, {
-  tableName: 'Sessions',
-  timestamps: false,
+  tableName: 'session',
+  timestamps: false
 });
-
-// Establish the relationship with qu table 
-Session.belongsTo(Question, { foreignKey: 'next_qu', as: 'nextQuestion' });
 
 module.exports = Session;

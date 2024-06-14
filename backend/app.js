@@ -5,8 +5,14 @@ const quizRoutes = require('./routes/quiz');
 const sessionRoutes = require('./routes/session');
 const cookieParser = require('cookie-parser');
 const sessionMiddleware = require('./middlewares/session');
+
+// import models
+const Question = require('./models/question');
 const Session = require('./models/session');
-const Question = require('./models/questions');
+const SessionAnswer = require('./models/sessionAnswer');
+const AnswerOption = require('./models/answerOption');
+const Recommendation = require('./models/recommendation');
+require('./models/associations');
 
 const app = express();
 
