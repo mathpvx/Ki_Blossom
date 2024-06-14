@@ -2,7 +2,7 @@ const uuid = require('uuid');
 const Session = require('../models/session');
 
 const sessionMiddleware = async (req, res, next) => {
-  // retrieves session if from the cookies attached to req
+  // retrieves session id from the cookies attached to req
   let sessionId = req.cookies.session_id;
 
   if (!sessionId) {
