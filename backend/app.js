@@ -3,8 +3,9 @@ const bodyParser = require('body-parser');
 const sequelize = require('./config/db');
 const quizRoutes = require('./routes/quiz');
 const sessionRoutes = require('./routes/session');
-const cookieParser = require('cookie-parser');
+const sessionAnswerRoutes = require('./routes/sessionAnswer');
 const sessionMiddleware = require('./middlewares/session');
+const cookieParser = require('cookie-parser');
 
 // import models
 const Question = require('./models/question');
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/api/quiz', quizRoutes);
 app.use('/api/session', sessionRoutes);
+app.use('/api/session-answer', sessionAnswerRoutes);
 
 // Sync Sequelize models with the database
 // synchronize ORM with DB tables: create them
