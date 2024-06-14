@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const sessionMiddleware = require('./middlewares/session');
 const Session = require('./models/session');
 const Question = require('./models/questions');
+const AnswerOptions = require('./models/answerOptions');
 
 const app = express();
 
