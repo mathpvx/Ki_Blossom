@@ -15,6 +15,10 @@ const AnswerOption = sequelize.define('AnswerOption', {
   },
   reco_id: {
     type: DataTypes.INTEGER,
+  },
+  answer_button: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, {
   tableName: 'answer_option',
