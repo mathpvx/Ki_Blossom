@@ -10,6 +10,9 @@ const AnswerOption = sequelize.define('AnswerOption', {
   next_qu: {
     type: DataTypes.INTEGER,
   },
+  current_qu: {
+    type: DataTypes.INTEGER,
+  },
   reco_id: {
     type: DataTypes.INTEGER,
   }
