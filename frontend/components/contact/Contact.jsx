@@ -6,9 +6,9 @@ const Contact = () => {
   const [question, setQuestion] = useState(null);
   const [sessionId, setSessionId] = useState(null);
 
-  const fetchQuestion = async () => {
+  const fetchQuestion = async (nextQuestionId = 1) => {
     try {
-      const response = await fetch('/api/quiz/questions');
+      const response = await fetch(`/api/quiz/questions?qu_id=${nextQuestionId}`);
       const data = await response.json();
       setQuestion(data);
     } catch (error) {
@@ -17,17 +17,13 @@ const Contact = () => {
   };
 
   const startQuiz = async () => {
-    console.log('Button clicked, starting quiz...');
     try {
       const response = await fetch('/api/session/start-quiz');
-      console.log('Response status:', response.status);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      console.log('Generated session ID:', data.sessionId);
       setSessionId(data.sessionId);
-      // Optionally, you can fetch a question immediately after starting the quiz
       fetchQuestion();
     } catch (error) {
       console.error('Error starting quiz:', error);
@@ -35,8 +31,12 @@ const Contact = () => {
   };
 
   const handleAnswer = async (answerId) => {
+    if (!answerId) {
+      console.error('Invalid answer ID:', answerId);
+      return;
+    }
     try {
-      await fetch('/api/session-answers/answer', {
+      const response = await fetch('/api/session-answer/answer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,8 +46,12 @@ const Contact = () => {
           answer_id: answerId,
         }),
       });
-      // Fetch the next question or handle the end of the quiz
-      fetchQuestion();
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      // Fetch the next question based on the answer
+      fetchQuestion(data.nextQuestionId);
     } catch (error) {
       console.error('Error submitting answer:', error);
     }
@@ -69,8 +73,11 @@ const Contact = () => {
           {sessionId && question && (
             <div className="question">
               <p>{question.qu_txt}</p>
-              <button onClick={() => handleAnswer(1)}>Yes</button>
-              <button onClick={() => handleAnswer(2)}>No</button>
+              {question.answerOptions.map((option) => (
+                <button key={option.answer_id} onClick={() => handleAnswer(option.answer_id)}>
+                  {option.answer_button}
+                </button>
+              ))}
             </div>
           )}
         </div>
