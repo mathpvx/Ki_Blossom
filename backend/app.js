@@ -12,7 +12,7 @@ const Question = require('./models/question');
 const Session = require('./models/session');
 const SessionAnswer = require('./models/sessionAnswer');
 const AnswerOption = require('./models/answerOption');
-const Recommendation = require('./models/recommendation');
+const Recommendation = require('./models/recommendation.js');
 require('./models/associations');
 
 const app = express();

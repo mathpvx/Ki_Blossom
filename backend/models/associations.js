@@ -2,10 +2,11 @@ const Question = require('./question');
 const Session = require('./session');
 const SessionAnswer = require('./sessionAnswer');
 const AnswerOption = require('./answerOption');
-const Recommendation = require('./recommendation');
+const Recommendation = require('./recommendation.js');
 
 // Associations
 AnswerOption.belongsTo(Question, { foreignKey: 'next_qu' });
+AnswerOption.belongsTo(Question, { foreignKey: 'current_qu' });
 AnswerOption.belongsTo(Recommendation, { foreignKey: 'reco_id' });
 
 Question.hasOne(Session, { foreignKey: 'next_qu' });
