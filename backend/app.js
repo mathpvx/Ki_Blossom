@@ -13,6 +13,12 @@ const Session = require('./models/session');
 const SessionAnswer = require('./models/sessionAnswer');
 const AnswerOption = require('./models/answerOption');
 const Recommendation = require('./models/recommendation.js');
+const WbExercice = require('./models/wbExercice');
+const Unhealthy = require('./models/unhealthy');
+const Plants = require('./models/plant');
+const EssentialOil = require('./models/essentialOil');
+const Dietetics = require('./models/dietetics');
+const Food = require('./models/food');
 require('./models/associations');
 
 const app = express();
