@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const Recommendation = require('./recommendation');
 
 const AnswerOption = sequelize.define('AnswerOption', {
   answer_id: {
@@ -15,6 +16,10 @@ const AnswerOption = sequelize.define('AnswerOption', {
   },
   reco_id: {
     type: DataTypes.INTEGER,
+    references: {
+      model: Recommendation,
+      key: 'reco_id'
+    }
   },
   answer_button: {
     type: DataTypes.STRING,
