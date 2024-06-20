@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
+  // allow usings state variable in functional components
   const [question, setQuestion] = useState(null);
   const [sessionId, setSessionId] = useState(null);
 

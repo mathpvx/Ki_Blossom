@@ -6,6 +6,7 @@ const sessionRoutes = require('./routes/session');
 const sessionAnswerRoutes = require('./routes/sessionAnswer');
 const sessionMiddleware = require('./middlewares/session');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 // import models
 const Question = require('./models/question');
@@ -23,6 +24,7 @@ require('./models/associations');
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/api/quiz', quizRoutes);
