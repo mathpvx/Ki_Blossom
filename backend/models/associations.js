@@ -33,4 +33,6 @@ Recommendation.belongsTo(Food, { as: 'Food1', foreignKey: 'food_id1' });
 Recommendation.belongsTo(Food, { as: 'Food2', foreignKey: 'food_id2' });
 Recommendation.belongsTo(Plants, { foreignKey: 'plant_id' });
 Recommendation.belongsTo(EssentialOil, { foreignKey: 'eo_id' });
-Recommendation.belongsTo(Dietetics, { foreignKey: 'diet_id' });
+Recommendation.belongsTo(Dietetics, { foreignKey: 'diet_id', as: 'Dietetics' });
+
+AnswerOption.hasMany(Recommendation, { foreignKey: 'reco_id' });
