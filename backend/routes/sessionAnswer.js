@@ -42,8 +42,6 @@ router.post('/answer', async (req, res) => {
         }]
       });
 
-      console.log('sessionAnswers:', JSON.stringify(sessionAnswers, null, 2));
-
       const recommendations = sessionAnswers.reduce((acc, sessionAnswer) => {
         const { AnswerOption } = sessionAnswer;
         if (AnswerOption && AnswerOption.Recommendation) {
@@ -52,8 +50,6 @@ router.post('/answer', async (req, res) => {
         }
         return acc;
       }, []);
-
-      console.log('Recommendations:', JSON.stringify(recommendations, null, 2));
 
       return res.json({ nextQuestionId: null, recommendations });
     } else {
@@ -81,8 +77,6 @@ router.post('/answer', async (req, res) => {
       }
 
       const nextQuestion = await Question.findOne({ where: { qu_id: answerOption.next_qu } });
-
-      console.log('Answer Option:', JSON.stringify(answerOption, null, 2));
 
       return res.json({
         nextQuestionId: nextQuestion ? nextQuestion.qu_id : null,
