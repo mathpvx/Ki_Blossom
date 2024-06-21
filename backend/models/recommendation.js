@@ -26,14 +26,16 @@ const Recommendation = sequelize.define('Recommendation', {
     references: {
       model: 'food',
       key: 'id'
-    }
+    },
+    as: 'Food1'
   },
   food_id2: {
     type: DataTypes.INTEGER,
     references: {
       model: 'food',
       key: 'id'
-    }
+    },
+    as: 'Food2'
   },
   plant_id: {
     type: DataTypes.INTEGER,
