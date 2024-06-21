@@ -1,11 +1,10 @@
-'use client'; 
 import { useState, useEffect } from 'react';
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
-  // allow usings state variable in functional components
   const [question, setQuestion] = useState(null);
   const [sessionId, setSessionId] = useState(null);
+  const [recommendations, setRecommendations] = useState([]);
 
   const fetchQuestion = async (nextQuestionId = 1) => {
     try {
@@ -51,8 +50,12 @@ const Contact = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      // Fetch the next question based on the answer
-      fetchQuestion(data.nextQuestionId);
+      if (data.nextQuestionId) {
+        fetchQuestion(data.nextQuestionId);
+      } else {
+        console.log('Received Recommendations:', data.recommendations);
+        setRecommendations(data.recommendations);
+      }
     } catch (error) {
       console.error('Error submitting answer:', error);
     }
@@ -79,6 +82,71 @@ const Contact = () => {
                   {option.answer_button}
                 </button>
               ))}
+            </div>
+          )}
+          {recommendations.length > 0 && (
+            <div className="recommendations">
+              <h3>Recommendations</h3>
+              <ul>
+                {recommendations.map((reco) => (
+                  <li key={reco.reco_id}>
+                    {reco.Dietetics && (
+                      <div>
+                        <p>{reco.Dietetics.description}</p>
+                        {reco.Dietetics.img_url && <img src={reco.Dietetics.img_url} />}
+                      </div>
+                    )}
+                    {reco.EssentialOil && (
+                      <div>
+                        <h4>{reco.EssentialOil.name}</h4>
+                        <p>{reco.EssentialOil.description}</p>
+                        <p>{reco.EssentialOil.explanation}</p>
+                        {reco.EssentialOil.img_url && <img src={reco.EssentialOil.img_url} alt={reco.EssentialOil.name} />}
+                      </div>
+                    )}
+                    {reco.Food1 && (
+                      <div>
+                        <h4>{reco.Food1.name}</h4>
+                        <p>{reco.Food1.description}</p>
+                        <p>{reco.Food1.explanation}</p>
+                        {reco.Food1.img_url && <img src={reco.Food1.img_url} alt={reco.Food1.name} />}
+                      </div>
+                    )}
+                    {reco.Food2 && (
+                      <div>
+                        <h4>{reco.Food2.name}</h4>
+                        <p>{reco.Food2.description}</p>
+                        <p>{reco.Food2.explanation}</p>
+                        {reco.Food2.img_url && <img src={reco.Food2.img_url} alt={reco.Food2.name} />}
+                      </div>
+                    )}
+                    {reco.Plant && (
+                      <div>
+                        <h4>{reco.Plant.name}</h4>
+                        <p>{reco.Plant.description}</p>
+                        <p>{reco.Plant.explanation}</p>
+                        {reco.Plant.img_url && <img src={reco.Plant.img_url} alt={reco.Plant.name} />}
+                      </div>
+                    )}
+                    {reco.WbExercice && (
+                      <div>
+                        <h4>{reco.WbExercice.name}</h4>
+                        <p>{reco.WbExercice.description}</p>
+                        <p>{reco.WbExercice.explanation}</p>
+                        {reco.WbExercice.img_url && <img src={reco.WbExercice.img_url} alt={reco.WbExercice.name} />}
+                      </div>
+                    )}
+                    {reco.Unhealthy && (
+                      <div>
+                        <h4>{reco.Unhealthy.name}</h4>
+                        <p>{reco.Unhealthy.risk}</p>
+                        <p>{reco.Unhealthy.advice}</p>
+                        {reco.Unhealthy.img_url && <img src={reco.Unhealthy.img_url} alt={reco.Unhealthy.name} />}
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>
