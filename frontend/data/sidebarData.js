@@ -2,13 +2,13 @@ module.exports = [
   {
     id: 1,
     icon: "/img/svg/home-run.svg",
-    menuName: "Home",
+    menuName: "Accueil",
     routePath: "/home",
   },
   {
     id: 2,
     icon: "/img/svg/avatar.svg",
-    menuName: "About",
+    menuName: "A propos",
     routePath: "/about",
   },
   {

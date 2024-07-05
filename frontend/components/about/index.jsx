@@ -16,14 +16,7 @@ const AboutMain = () => {
             </div>
           </div>
           {/* End title */}
-
           <Intro />
-
-          <div className="tokyo_tm_button" data-position="left">
-            <a href="/img/cv.pdf" download>
-              <span>Télécharger CV</span>
-            </a>
-          </div>
         </div>
       </div>
       {/* End .container */}

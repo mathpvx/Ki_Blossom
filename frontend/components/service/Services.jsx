@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import servicesData from "../../data/servicesData";
-import ShareSocial from "../social-share/ShareSocial";
+
 
 // Modal.setAppElement("#__next");
 
@@ -30,7 +30,7 @@ const Services = () => {
             <p className="text">{item.text}</p>
             <div className="tokyo_tm_read_more">
               <div className="read-more">
-                <span>Read More</span>
+                <span>Lire</span>
               </div>
             </div>
           </div>
@@ -54,19 +54,10 @@ const Services = () => {
           {/* END CLOSE ICON */}
           <div className="box_inner">
             <div className="description_wrap scrollable">
-              <div className="image">
-                <div
-                  className="main"
-                  style={{
-                    backgroundImage: `url(${singleData?.largeImg})`,
-                  }}
-                ></div>
-              </div>
-              {/* END IMAGE */}
               <div className="details">
                 <div className="extra">
                   <p className="date">
-                    By <a href="#">{singleData?.poster}</a>
+                    <a href="#">{singleData?.poster}</a>
                     <span>{singleData?.date}</span>
                   </p>
                 </div>
@@ -76,12 +67,6 @@ const Services = () => {
               <div className="main_content ">
                 <div className="descriptions">{singleData?.descriptions}</div>
                 {/* END DESCRIPTION */}
-                <div className="news_share">
-                  <span>Share:</span>
-                  <ShareSocial />
-                  {/* END SOCIAL SHARE */}
-                </div>
-                {/* END NEWS SHARE */}
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ const index = () => {
             <div className="title_flex">
               <div className="left">
                 <span>Le Projet</span>
-                <h3>Ki Blossom, un projet vraiiiiiiment...</h3>
+                <h3>Ki Blossom, le bien-être accessible à tous.</h3>
               </div>
             </div>
           </div>
