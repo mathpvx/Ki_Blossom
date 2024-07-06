@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const Recommendation = require('./recommendation');
