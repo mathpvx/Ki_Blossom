@@ -5,6 +5,7 @@ const Contact = () => {
   const [question, setQuestion] = useState(null);
   const [sessionId, setSessionId] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
+  const [message, setMessage] = useState('');
 
   const fetchQuestion = async (nextQuestionId = 1) => {
     try {
@@ -50,11 +51,26 @@ const Contact = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+
+      if (data.message) {
+        setMessage(data.message);
+        setRecommendations(null);
+      } else {
+        setMessage('');
+        setRecommendations(data.recommendations);
+      }
+
       if (data.nextQuestionId) {
         fetchQuestion(data.nextQuestionId);
       } else {
         console.log('Received Recommendations:', data.recommendations);
-        setRecommendations(data.recommendations);
+        setRecommendations(data.recommendations ||[]);
+      }
+      // Set the message if the answer ID is 1
+      if (answerId === 1) {
+        setMessage('Par mesure de précaution, nous vous invitons à consutler votre médecin ou votre pharmacien pour toute question.');
+      } else {
+        setMessage(''); // Reset message if other answers
       }
     } catch (error) {
       console.error('Error submitting answer:', error);
@@ -84,7 +100,12 @@ const Contact = () => {
               ))}
             </div>
           )}
-          {recommendations.length > 0 && (
+          {message && (
+            <div className="message">
+              <p>{message}</p>
+            </div>
+          )}
+          {!message && recommendations && recommendations?.length > 0 && (
             <div className="recommendations">
               <h3>Recommendations</h3>
               <ul>

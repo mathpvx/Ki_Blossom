@@ -27,15 +27,19 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  height: 100%;
+  min-height: 100vh;
   font-family: var(--font-mulish);
   font-size: 15px;
   line-height: 30px;
   letter-spacing: 0.5px;
   word-wrap: break-word;
   font-weight: 400;
-  background-color: #f8f8f8;
+  background-color: #dccece9d;
   color: #767676;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 svg {
   fill: currentcolor;
@@ -330,7 +334,7 @@ h6 {
 }
 .tokyo_tm_all_wrap .leftpart .copyright a {
   text-decoration: none;
-  color: #787878;
+  color: hsl(0, 0%, 47%);
   font-weight: 500;
   padding-left: 5px;
 
@@ -354,10 +358,22 @@ h6 {
   min-height: calc(100vh - 50px);
   float: left;
   position: relative;
-  background-color: #f8f8f8;
   @media screen and (min-width: 1601px) {
     padding-left: 450px;
   }
+}
+
+.tokyo_tm_all_wrap .rightpart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-image: url('/img/sakura_wallpaper.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
 }
 .tokyo_tm_all_wrap .rightpart_in {
   position: relative;
@@ -420,6 +436,7 @@ h6 {
   align-items: center;
   justify-content: center;
   position: relative;
+  background-size: cover;
 }
 .tokyo_tm_home .home_content {
   display: flex;
@@ -477,6 +494,20 @@ h6 {
   max-width: 450px;
   margin-bottom: 20px;
 }
+
+.quiz-button {
+  background-color: #b1c6af;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px; 
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
 .tokyo_tm_home .social {
   width: 100%;
   float: left;
@@ -1571,7 +1602,8 @@ body.modal {
   .tokyo_tm_all_wrap .leftpart {
     width: 290px;
     padding: 0 40px;
-    background: #fefefe;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
   }
   .tokyo_tm_section {
     padding-left: 290px;
@@ -2097,10 +2129,10 @@ body.modal {
 .tokyo_tm_portfolio {
   .mobile_title {
     width: 100%;
-    height: auto;
+    height: 100%;
     clear: both;
     float: left;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.831);
     position: absolute;
     z-index: 2;
     bottom: 0;

@@ -25,9 +25,7 @@ const Services = () => {
       {servicesData.map((item) => (
         <li key={item.id}>
           <div className="list_inner" onClick={() => handleModle(item?.id)}>
-            <span className="number">{item.no}</span>
             <h3 className="title">{item.title}</h3>
-            <p className="text">{item.text}</p>
             <div className="tokyo_tm_read_more">
               <div className="read-more">
                 <span>Lire</span>
@@ -49,7 +47,6 @@ const Services = () => {
       >
         <div className="tokyo_tm_modalbox_news">
           <button className="close-modal" onClick={() => setIsOpen(false)}>
-            <img src="/img/svg/cancel.svg" alt="close icon" />
           </button>
           {/* END CLOSE ICON */}
           <div className="box_inner">

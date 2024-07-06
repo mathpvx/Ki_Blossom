@@ -1,23 +1,12 @@
 "use client";
 import React from "react";
 import { ReactTyped } from "react-typed";
-import Social from "../Social";
 
 const Home = () => {
   return (
     <>
       <div className="tokyo_tm_home">
         <div className="home_content">
-          <div className="avatar">
-            <div
-              className="image avatar_img"
-              style={{
-                backgroundImage: "url(/img/slider/1.webp)",
-              }}
-            ></div>
-            {/* END AVATAR IMAGE */}
-          </div>
-          {/* END AVATAR */}
           <div className="details">
             <h3 className="name">Ki Blossom</h3>
             <h4 className="typer">
@@ -37,7 +26,9 @@ const Home = () => {
             
             </p>
             {/* END JOB */}
-            <Social />
+            <a href="/contact" className="quiz-button">
+              Faire le Quiz
+            </a>
           </div>
           {/* END DETAILS */}
         </div>

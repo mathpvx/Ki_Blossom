@@ -21,7 +21,10 @@ router.post('/answer', async (req, res) => {
     // Store the answer
     await SessionAnswer.create({ sess_id, answer_id });
 
-    if (answer_id === 58 || answer_id === 59) {
+    if (answer_id === 1) {
+      // Custom message for answer_id 1
+      return res.json({ message: 'Par mesure de précaution, nous vous invitons à consutler votre médecin ou votre pharmacien pour toute question.' });
+    } else if (answer_id === 58 || answer_id === 59) {
       // Fetch all answers for the session
       const sessionAnswers = await SessionAnswer.findAll({
         where: { sess_id },
@@ -30,7 +33,7 @@ router.post('/answer', async (req, res) => {
           include: [{
             model: Recommendation,
             include: [
-              { model: Dietetics, attributes: [ 'description', 'img_url'], as: 'Dietetics' },
+              { model: Dietetics, attributes: ['description', 'img_url'], as: 'Dietetics' },
               { model: EssentialOil, attributes: ['name', 'description', 'explanation', 'img_url'], as: 'EssentialOil' },
               { model: Food, attributes: ['name', 'description', 'explanation', 'img_url'], as: 'Food1' },
               { model: Food, attributes: ['name', 'description', 'explanation', 'img_url'], as: 'Food2' },
