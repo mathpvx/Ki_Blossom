@@ -1,6 +1,6 @@
 node_modules
 .next
-backend/config/db.js
+.env
 check_db.sql
 setup_db.sql
 scripts
