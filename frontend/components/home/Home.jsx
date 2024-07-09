@@ -13,7 +13,7 @@ const Home = () => {
               <ReactTyped
                 strings={[
                   "Fais le test.",
-                  "Obtient un résultat personnalisé.",
+                  "Obtiens un résultat personnalisé.",
                   "Améliore ton bien-être !",
                 ]}
                 loop
@@ -23,7 +23,6 @@ const Home = () => {
 
             <p className="job">
               La plateforme qui améliore ton bien-être en 5min.
-            
             </p>
             {/* END JOB */}
             <a href="/contact" className="quiz-button">
