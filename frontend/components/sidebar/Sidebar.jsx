@@ -54,7 +54,7 @@ const Sidebar = () => {
             <Link className="navbar-brand" href="/">
               <Image
                 width={135}
-                height={20}
+                height={135}
                 src="/img/logo/dark.png"
                 alt="brand"
               />

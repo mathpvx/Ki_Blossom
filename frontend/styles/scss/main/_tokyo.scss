@@ -1693,7 +1693,9 @@ body.modal {
   }
 
   .tokyo_tm_all_wrap .leftpart .leftpart_inner .navbar-brand img {
-    max-width: 100px;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
   }
 
   .tokyo_tm_all_wrap .rightpart {
