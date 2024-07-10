@@ -15,13 +15,13 @@ module.exports = [
     id: 3,
     icon: "/img/svg/setting.svg",
     menuName: "Le Projet",
-    routePath: "/service",
+    routePath: "/projet",
   },
 
   {
     id: 6,
     icon: "/img/svg/mail.svg",
     menuName: "Faire le Quiz",
-    routePath: "/contact",
+    routePath: "/quiz",
   },
 ];

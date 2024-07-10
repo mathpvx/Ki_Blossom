@@ -25,7 +25,7 @@ const Home = () => {
               La plateforme qui améliore ton bien-être en 5min.
             </p>
             {/* END JOB */}
-            <a href="/contact" className="quiz-button">
+            <a href="/quiz" className="quiz-button">
               Faire le Quiz
             </a>
           </div>
