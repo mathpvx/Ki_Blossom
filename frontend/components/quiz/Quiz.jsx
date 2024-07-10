@@ -89,15 +89,17 @@ const Quiz = () => {
               </div>
             </div>
           </div>
-          <button onClick={startQuiz}>Start Quiz</button>
+          <button className="start-quiz-button" onClick={startQuiz}>Faire le Quiz</button>
           {sessionId && question && (
-            <div className="question">
-              <p>{question.qu_txt}</p>
-              {question.answerOptions.map((option) => (
-                <button key={option.answer_id} onClick={() => handleAnswer(option.answer_id)}>
-                  {option.answer_button}
-                </button>
-              ))}
+            <div className="question-container">
+              <p className="question">{question.qu_txt}</p>
+              <div className="answer-buttons">
+                {question.answerOptions.map((option) => (
+                  <button key={option.answer_id} className="answer-button" onClick={() => handleAnswer(option.answer_id)}>
+                    {option.answer_button}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
           {message && (
@@ -105,7 +107,7 @@ const Quiz = () => {
               <p>{message}</p>
             </div>
           )}
-          {!message && recommendations && recommendations?.length > 0 && (
+          {!message && recommendations && recommendations.length > 0 && (
             <div className="recommendations">
               <h3>Recommendations</h3>
               <ul>

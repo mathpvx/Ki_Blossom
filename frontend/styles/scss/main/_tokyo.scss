@@ -1540,6 +1540,78 @@ body.modal {
   font-weight: 500;
 }
 
+/* Center the question on the screen and make it responsive */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.question-container .question {
+  font-size: 24px;
+  font-family: var(--font-montserrat);
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Style the answer buttons */
+.answer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.answer-button {
+  background-color: #b1c6af;
+  /* Light pink/red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.answer-button:hover {
+  background-color: #9dbb94;
+  /* Slightly darker pink/red on hover */
+}
+
+/* Style the start quiz button */
+.start-quiz-button {
+  background-color: #b1c6af;
+  /* Light green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s;
+}
+
+.start-quiz-button:hover {
+  background-color: #9dbb94;
+  /* Slightly darker green on hover */
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  .question-container .question {
+    font-size: 20px;
+  }
+
+  .answer-button, .start-quiz-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
 /*---------------------------------------------------*/
 /*	9) TOKYO MAGIC CURSOR
 /*---------------------------------------------------*/
