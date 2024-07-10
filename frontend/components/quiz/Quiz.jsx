@@ -170,7 +170,10 @@ const Quiz = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+              <div className="disclaimer">
+                <p>Pour un usage sûr et efficace des plantes et huiles essentielles, vérifiez toujours les posologies indiquées sur l'emballage du produit. En cas de doute ou pour des informations supplémentaires, consultez votre pharmacien ou un professionnel de santé.</p>
+              </div>
+              </div>
           )}
         </div>
       </div>

@@ -1600,6 +1600,17 @@ body.modal {
   /* Slightly darker green on hover */
 }
 
+.disclaimer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  color: #812c46;
+}
+
 /* Ensure responsiveness */
 @media (max-width: 768px) {
   .question-container .question {
@@ -1693,7 +1704,7 @@ body.modal {
   }
 
   .tokyo_tm_all_wrap .leftpart .leftpart_inner .navbar-brand img {
-      max-width: 100%;
+      max-width: 20%;
       height: auto;
       object-fit: contain;
   }
